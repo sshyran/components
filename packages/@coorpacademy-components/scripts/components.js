@@ -1,5 +1,5 @@
 import {Transform} from 'stream';
-import {join} from 'path';
+import {join, resolve} from 'path';
 import _join from 'lodash/fp/join';
 import camelCase from 'lodash/fp/camelCase';
 import last from 'lodash/fp/last';
@@ -39,8 +39,9 @@ const createComponentStream = cwd => {
 
 export default createComponentStream;
 
-if (!module.parent)
-  createComponentStream(process.cwd())
+if (!module.parent) {
+  const cwd = resolve(process.argv.pop());
+  createComponentStream(cwd)
     .pipe(
       new Transform({
         objectMode: true,
@@ -50,3 +51,4 @@ if (!module.parent)
       })
     )
     .pipe(process.stdout);
+}

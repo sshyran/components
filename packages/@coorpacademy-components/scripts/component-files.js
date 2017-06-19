@@ -105,7 +105,6 @@ export default createComponentFileStream;
 
 if (!module.parent) {
   const cwd = _resolve(process.argv.pop());
-
   createComponentFileStream(cwd, '**')
     .pipe(
       new Transform({
