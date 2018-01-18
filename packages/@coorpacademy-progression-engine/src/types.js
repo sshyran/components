@@ -104,7 +104,8 @@ export type ExtraLifeAcceptedAction = {
   type: 'extraLifeAccepted',
   payload: {
     content: Content,
-    nextContent: Content
+    nextContent: Content,
+    instructions?: Array<Instruction>
   }
 };
 
@@ -112,12 +113,14 @@ export type ExtraLifeRefusedAction = {
   type: 'extraLifeRefused',
   payload: {
     content: Content,
-    nextContent: Content
+    nextContent: Content,
+    instructions?: Array<Instruction>
   }
 };
 
 export type Action =
   | InitAction
+  | MoveAction
   | AnswerAction
   | AskClueAction
   | ExtraLifeAcceptedAction
