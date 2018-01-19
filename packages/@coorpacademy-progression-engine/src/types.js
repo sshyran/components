@@ -1,6 +1,6 @@
 // @flow
 
-import type {Instruction} from './rule-engine/types';
+import type {Instruction, ChapterRulePool} from './rule-engine/types';
 
 export type ViewedResource = {
   type: 'chapter',
@@ -92,6 +92,14 @@ export type InitAction = {
   type: 'init'
 };
 
+export type MoveAction = {
+  type: 'move',
+  payload: {
+    nextContent: Content,
+    instructions?: Array<Instruction>
+  }
+};
+
 export type ExtraLifeAcceptedAction = {
   type: 'extraLifeAccepted',
   payload: {
@@ -114,7 +122,8 @@ export type Action =
   | AskClueAction
   | ExtraLifeAcceptedAction
   | ExtraLifeRefusedAction
-  | ContentResourceViewedAction;
+  | ContentResourceViewedAction
+  | MoveAction;
 
 export type Engine = {
   ref: string,
@@ -122,7 +131,7 @@ export type Engine = {
 };
 
 export type EngineOptions = {
-  livesDisabled: boolean
+  livesDisabled?: boolean
 };
 
 export type Configuration = {
@@ -140,6 +149,7 @@ export type Progression = {
 };
 
 export type NewProgression = {
+  content: Content,
   engine: Engine,
   engineOptions: EngineOptions,
   actions: Array<Action>
@@ -239,4 +249,9 @@ export type Config = {
 export type SlidePool = {
   chapterId: string,
   slides: Array<Slide>
+};
+
+export type AvailableContent = {
+  slidePools?: Array<SlidePool>,
+  chapterRulePool?: ChapterRulePool
 };
