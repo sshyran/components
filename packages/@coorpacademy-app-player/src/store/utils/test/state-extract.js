@@ -2,8 +2,8 @@ import test from 'ava';
 import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
 import {
-  getAnswers,
-  getAnswerValues,
+  getAnswer,
+  getAnswerValue,
   getChoices,
   getClue,
   getCurrentClue,
@@ -50,14 +50,14 @@ test('getCurrentProgression should get current progression from state', t => {
   t.is(getCurrentProgression(state), progression);
 });
 
-test('getAnswers should get answers from state', t => {
-  const answers = {value: ['foo']};
-  const state = pipe(set('ui.current.progressionId', '0'), set('ui.answers.0', answers))({});
+test('getAnswer should get answer from state', t => {
+  const answer = {value: ['foo']};
+  const state = pipe(set('ui.current.progressionId', '0'), set('ui.answers.0', answer))({});
 
-  t.is(getAnswers(state), answers);
+  t.is(getAnswer(state), answer);
 });
 
-test("getAnswerValues should get answer's values from state", t => {
+test("getAnswerValue should get answer's values from state", t => {
   const slide = {
     question: {
       content: {
@@ -65,13 +65,13 @@ test("getAnswerValues should get answer's values from state", t => {
       }
     }
   };
-  const answers = ['foo'];
-  const state = pipe(set('ui.current.progressionId', '0'), set('ui.answers.0.value', answers))({});
+  const answer = ['foo'];
+  const state = pipe(set('ui.current.progressionId', '0'), set('ui.answers.0.value', answer))({});
 
-  t.is(getAnswerValues(slide, state), answers);
+  t.is(getAnswerValue(slide, state), answer);
 });
 
-test('getAnswerValues should return defaultValue from slide if available and answers are not in state', t => {
+test('getAnswerValue should return defaultValue from slide if available and answer are not in state', t => {
   const slide = {
     question: {
       content: {
@@ -81,17 +81,17 @@ test('getAnswerValues should return defaultValue from slide if available and ans
   };
   const state = set('ui.current.progressionId', '0', {});
 
-  t.deepEqual(getAnswerValues(slide, state), ['500']);
+  t.deepEqual(getAnswerValue(slide, state), ['500']);
 });
 
-test('getAnswerValues should return undefined if answers are not in state and there is no default value for the slide', t => {
+test('getAnswerValue should return undefined if answer are not in state and there is no default value for the slide', t => {
   const slide = {};
   const state = set('ui.current.progressionId', '0', {});
 
-  t.is(getAnswerValues(slide, state), undefined);
+  t.is(getAnswerValue(slide, state), undefined);
 });
 
-test('getAnswerValues should not use defaultValue from slide if answers is an empty array', t => {
+test('getAnswerValue should not use defaultValue from slide if answer is an empty array', t => {
   const slide = {
     question: {
       content: {
@@ -101,7 +101,7 @@ test('getAnswerValues should not use defaultValue from slide if answers is an em
   };
   const state = pipe(set('ui.current.progressionId', '0'), set('ui.answers.0.value', []))({});
 
-  t.deepEqual(getAnswerValues(slide, state), []);
+  t.deepEqual(getAnswerValue(slide, state), []);
 });
 
 test("getQuestionType should get question's type from state", t => {
@@ -180,7 +180,7 @@ test('hasViewedAResourceAtThisStep should get progression.state.hasViewedAResour
 
 test('getCorrection should get correction from state', t => {
   const correction = ['Bonne réponse'];
-  const state = set('data.answers.entities.foo.bar', correction)({});
+  const state = set('data.answer.entities.foo.bar', correction)({});
 
   t.is(getCorrection('foo', 'bar')(state), correction);
 });
@@ -192,7 +192,7 @@ test('getCurrentCorrection should get current correction from state', t => {
   const state = pipe(
     set(`data.progressions.entities.${progression._id}`, progression),
     set(`data.contents.slide.entities.${slide._id}`, slide),
-    set(`data.answers.entities.${progression._id}.${slide._id}`, correction),
+    set(`data.answer.entities.${progression._id}.${slide._id}`, correction),
     set('ui.current.progressionId', 'foo')
   )({});
 

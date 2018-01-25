@@ -34,18 +34,18 @@ export const isCurrentEngineLearner = state => {
   return get('ref', engine) === 'learner';
 };
 
-export const getAnswers = state => {
+export const getAnswer = state => {
   const progressionId = getCurrentProgressionId(state);
   return getOr({}, ['ui', 'answers', progressionId])(state);
 };
 
-export const getAnswerValues = (slide, state) => {
-  const answers = get('value', getAnswers(state));
+export const getAnswerValue = (slide, state) => {
+  const answer = get('value', getAnswer(state));
   const defaultValue = get('question.content.defaultValue', slide);
-  if (answers === undefined && defaultValue !== undefined) {
+  if (answer === undefined && defaultValue !== undefined) {
     return [_toString(defaultValue)];
   }
-  return answers;
+  return answer;
 };
 
 export const getSlide = id => get(['data', 'contents', 'slide', 'entities', id]);

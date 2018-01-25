@@ -62,6 +62,10 @@ const selectRule = (rules: Array<ChapterRule>, state: GenericState): ?ChapterRul
   const targetedChapterRules: Array<ChapterRule> = filter(isCurrentSlide(state.content))(rules);
   const sortedChapterRules: Array<ChapterRule> = sortBy('priority')(targetedChapterRules);
 
+  console.log('selectRule', JSON.stringify({
+    sortedChapterRules,
+    state
+  }, null, 4));
   return sortedChapterRules.find(matchWithState(state)) || null;
 };
 

@@ -2,7 +2,7 @@
 import type {NewProgression, State, Engine} from './types';
 import getConfig from './config';
 import updateState from './update-state';
-import answerAction from './reducers/test/fixtures/actions';
+// import answerAction from './reducers/test/fixtures/actions';
 
 const createState = (progression: NewProgression): State => {
   // TODO Implement function
@@ -26,9 +26,9 @@ const createState = (progression: NewProgression): State => {
     variables: {}
   };
 
-  //2 pour chacune des actions de progression, appeler l'updateState
+  // 2 pour chacune des actions de progression, appeler l'updateState
   const state = updateState(progression.engine, initialState, progression.actions);
-  console.log('state: ', state);
+  // console.log('state: ', state);
 
   return state;
 };

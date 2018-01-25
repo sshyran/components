@@ -1,9 +1,7 @@
 // @flow
-import get from 'lodash/fp/get';
 import head from 'lodash/fp/head';
-import pipe from 'lodash/fp/pipe';
 import type {AvailableContent, MoveAction, SlidePool} from '../types';
-import type {ChapterRulePool} from '../rule-engine/types';
+import type {ChapterRule} from '../rule-engine/types';
 import selectInitialRule from './select-initial-rule';
 import selectInitialSlide from './select-initial-slide';
 
@@ -25,8 +23,8 @@ const learnerInitialAction = (slidePools: Array<SlidePool>): MoveAction => {
   };
 };
 
-const adaptiveInitialAction = (chapterRulePool: ChapterRulePool): MoveAction => {
-  const rule = pipe(head, get('rules'), selectInitialRule)(chapterRulePool);
+const adaptiveInitialAction = (chapterRules: Array<ChapterRule>): MoveAction => {
+  const rule = selectInitialRule(chapterRules);
 
   if (!rule) {
     throw new Error('');
@@ -47,10 +45,12 @@ const createInitialAction = (availableContent: AvailableContent): MoveAction => 
     throw new Error('');
   }
 
-  const {chapterRulePool, slidePools} = availableContent;
+  const {chapterRulePool = [], slidePools} = availableContent;
 
-  if (chapterRulePool) {
-    return adaptiveInitialAction(chapterRulePool);
+  const firstChapterRule = head(chapterRulePool);
+
+  if (firstChapterRule && firstChapterRule.rules) {
+    return adaptiveInitialAction(firstChapterRule.rules);
   }
 
   if (!slidePools) {

@@ -83,7 +83,7 @@ export type AnswerAction = {
     nextContent: Content,
     answer: Answer,
     isCorrect: IsCorrect,
-    godMode?: boolean,
+    godmode?: boolean,
     instructions?: Array<Instruction>
   }
 };

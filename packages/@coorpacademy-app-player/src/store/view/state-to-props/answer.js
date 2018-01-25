@@ -17,14 +17,14 @@ import {
   getChoices,
   getCurrentProgressionId,
   getQuestionType,
-  getAnswerValues
+  getAnswerValue
 } from '../../utils/state-extract';
 import {editAnswer} from '../../actions/ui/answers';
 
 const editAnswerAction = (options, {dispatch}) => (state, slide) => newValue => {
   return dispatch(
     editAnswer(
-      getAnswerValues(slide, state),
+      getAnswerValue(slide, state),
       getQuestionType(slide),
       getCurrentProgressionId(state),
       newValue
@@ -33,7 +33,7 @@ const editAnswerAction = (options, {dispatch}) => (state, slide) => newValue => 
 };
 
 const qcmProps = (options, store) => (state, slide) => {
-  const answers = getAnswerValues(slide, state);
+  const answers = getAnswerValue(slide, state);
   const _editAnswerAction = editAnswerAction(options, store)(state, slide);
   return {
     type: 'qcm',
@@ -49,7 +49,7 @@ const qcmProps = (options, store) => (state, slide) => {
 };
 
 const qcmDragProps = (options, store) => (state, slide) => {
-  const answers = getAnswerValues(slide, state);
+  const answers = getAnswerValue(slide, state);
   return {
     type: 'qcmDrag',
     answers: map(choice => {
@@ -65,7 +65,7 @@ const qcmDragProps = (options, store) => (state, slide) => {
 };
 
 const qcmGraphicProps = (options, store) => (state, slide) => {
-  const answers = getAnswerValues(slide, state);
+  const answers = getAnswerValue(slide, state);
   return {
     type: 'qcmGraphic',
     answers: map(
@@ -85,7 +85,7 @@ const updateTemplateAnswer = (answers = [], index) => value =>
 
 const templateTextProps = (options, store) => (state, slide, choice, index) => {
   const {translate} = options;
-  const answers = getAnswerValues(slide, state);
+  const answers = getAnswerValue(slide, state);
   return {
     type: choice.type,
     name: choice.name,
@@ -100,7 +100,7 @@ const templateTextProps = (options, store) => (state, slide, choice, index) => {
 
 const templateSelectProps = (options, store) => (state, slide, choice, index) => {
   const {translate} = options;
-  const answers = getAnswerValues(slide, state);
+  const answers = getAnswerValue(slide, state);
   const answer = get(index, answers);
   const temporaryOption = {
     name: translate('Select an answer'),
@@ -146,7 +146,7 @@ const basicProps = (options, store) => (state, slide) => {
   return {
     type: 'freeText',
     placeholder: translate('Type here'),
-    value: pipe(getAnswerValues, head)(slide, state),
+    value: pipe(getAnswerValue, head)(slide, state),
     onChange: editAnswerAction(options, store)(state, slide)
   };
 };
@@ -165,7 +165,7 @@ const sliderProps = (options, store) => (state, slide) => {
     slide.question.content.max + 1
   );
 
-  const stateValue = pipe(getAnswerValues, head)(slide, state);
+  const stateValue = pipe(getAnswerValue, head)(slide, state);
   const currentValue = parseInt(stateValue);
 
   const indexValue = indexOf(currentValue, values);

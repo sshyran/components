@@ -104,7 +104,7 @@ const simpleComputeNextStep = (
 type ComputeNextStepOptions = {
   currentSlide: Slide,
   answer: Answer,
-  godMode: $PropertyType<$PropertyType<AnswerAction, 'payload'>, 'godMode'>,
+  godmode: $PropertyType<$PropertyType<AnswerAction, 'payload'>, 'godmode'>,
 
   slidePools: Array<SlidePool>,
   chapterRules?: Array<ChapterRule>
@@ -134,17 +134,23 @@ export default function computeNextStep(
   state: State,
   params: ComputeNextStepOptions
 ): ?ComputeNextStepReturn {
-  const {chapterRules, currentSlide, answer, godMode} = params;
-  const isCorrect = godMode || checkAnswer(engine, currentSlide.question, answer);
+  const {chapterRules, currentSlide, answer, godmode, isAccepted} = params;
+  const isCorrect = godmode || (currentSlide ? checkAnswer(engine, currentSlide.question, answer) : null);
 
   const nextState = updateState(engine, state, [
-    {
+    currentSlide ? {
       type: 'answer',
       payload: {
         content: state.nextContent,
         nextContent: EMPTY_NODE,
         answer,
         isCorrect
+      }
+    } : {
+      type: isAccepted ? 'extraLifeAccepted' : 'extraLifeRefused',
+      payload: {
+        content: state.nextContent,
+        nextContent: EMPTY_NODE
       }
     }
   ]);
@@ -174,7 +180,7 @@ export default function computeNextStep(
 type GivenAnswer = {
   currentSlide: Slide,
   answer: Answer,
-  godMode: $PropertyType<$PropertyType<AnswerAction, 'payload'>, 'godMode'>
+  godmode: $PropertyType<$PropertyType<AnswerAction, 'payload'>, 'godmode'>
 };
 
 type AvailableContent = {
@@ -192,7 +198,7 @@ export const newComputeNextStep = (
   engine: Engine,
   engineoptions: EngineOptions,
   state: State,
-  {currentSlide, answer, godMode}: GivenAnswer,
+  {currentSlide, answer, godmode}: GivenAnswer,
   {slidePools, chapterRules}: AvailableContent
 ): Result => {
   // TODO Implement function

@@ -13,7 +13,7 @@ import {
   getCurrentSlide,
   getCurrentProgressionId,
   getEngineConfig,
-  getAnswerValues,
+  getAnswerValue,
   getCurrentClue,
   getRoute,
   getQuestionMedia,
@@ -73,7 +73,7 @@ const playerProps = (options, store) => state => {
   const clickCTAHandler = () =>
     dispatch(
       validateAnswer(getCurrentProgressionId(state), {
-        answer: getAnswerValues(slide, state),
+        answer: getAnswerValue(slide, state),
         slideId: slide._id
       })
     );
