@@ -130,3 +130,4 @@ export CoorpHeader from './template/common/coorp-header';
 export Dashboard from './template/common/dashboard';
 export Discipline from './template/common/discipline';
 export SearchPage from './template/common/search-page';
+export TeamBuilder from './template/team-builder';
