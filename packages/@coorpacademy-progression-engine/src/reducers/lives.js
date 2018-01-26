@@ -5,9 +5,6 @@ import type {Action, Config, State} from '../types';
 
 export default function lives(config: Config): (number, Action, State) => number {
   return (amount: number = config.lives, action: Action, state: State): number => {
-    console.log({
-      amount, action, state
-    });
     if (state.livesDisabled) {
       return amount;
     }

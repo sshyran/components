@@ -1,6 +1,7 @@
 // @flow
 
 import find from 'lodash/fp/find';
+import isEmpty from 'lodash/fp/isEmpty';
 import includes from 'lodash/fp/includes';
 import type {
   Action,
@@ -15,8 +16,10 @@ export default function stars(config: Config): (number, Action, State) => number
   return (currentStars: number = 0, action: Action, state: State): number => {
     switch (action.type) {
       case 'answer': {
+        if (!isEmpty(action.payload.instructions)) return currentStars;
+
         const answerAction = (action: AnswerAction);
-        return !answerAction.payload.instructions && answerAction.payload.isCorrect
+        return answerAction.payload.isCorrect
           ? currentStars + config.starsPerCorrectAnswer
           : currentStars;
       }
