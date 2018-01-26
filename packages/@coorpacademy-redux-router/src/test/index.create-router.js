@@ -6,16 +6,12 @@ import {createRouter} from '..';
 test('should return view funciton with params', t => {
   t.plan(1);
 
-  // const options = {};
-
   const route = set('pathname', '/', {});
-  // const dispatch = () => {};
   const view = () => 'I am a view';
 
   const router = createRouter([
     {
       path: '*',
-      // eslint-disable-next-line no-shadow
       view
     }
   ]);
@@ -73,17 +69,14 @@ test("should respect route's order", t => {
   const router = createRouter([
     {
       path: '/:foo/:bar',
-      // eslint-disable-next-line no-shadow
       view: view1
     },
     {
       path: '/:foo',
-      // eslint-disable-next-line no-shadow
       view: view2
     },
     {
       path: '*',
-      // eslint-disable-next-line no-shadow
       view: view3
     }
   ]);
