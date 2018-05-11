@@ -228,6 +228,7 @@ import PromoCodeFixtureSuccess from '../src/atom/promo-code/test/fixtures/succes
 import ProviderFixtureDefault from '../src/atom/provider/test/fixtures/default';
 import RangeFixtureDefault from '../src/atom/range/test/fixtures/default';
 import RangeFixtureMulti from '../src/atom/range/test/fixtures/multi';
+import RangeFixtureToggleLearningType from '../src/atom/range/test/fixtures/toggleLearningType';
 import ResourceMiniatureFixturePdf from '../src/atom/resource-miniature/test/fixtures/pdf';
 import ResourceMiniatureFixtureSelectedPdf from '../src/atom/resource-miniature/test/fixtures/selected-pdf';
 import ResourceMiniatureFixtureSelectedVideo from '../src/atom/resource-miniature/test/fixtures/selected-video';
@@ -956,7 +957,8 @@ export const fixtures = {
     },
     Range: {
       Default: RangeFixtureDefault,
-      Multi: RangeFixtureMulti
+      Multi: RangeFixtureMulti,
+      ToggleLearningType: RangeFixtureToggleLearningType
     },
     ResourceMiniature: {
       Pdf: ResourceMiniatureFixturePdf,

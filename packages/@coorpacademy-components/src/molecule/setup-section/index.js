@@ -5,14 +5,16 @@ import ArrowUpIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-t
 import get from 'lodash/fp/get';
 import Provider from '../../atom/provider';
 import InputSwitch from '../../atom/input-switch';
+import InputRange from '../../atom/range';
 import style from './style.css';
+import { range } from 'rxjs/observable/range';
 
 const SetupSection = (props, context) => {
   const {translate, skin} = context;
   const brand = get('common.brand', skin);
   const medium = get('common.medium', skin);
 
-  const {title, onUp, onDown, display} = props;
+  const {title, onUp, onDown, display, disp} = props;
   const colorUp = onDown ? brand : medium;
   const colorDown = onUp ? brand : medium;
 
@@ -20,7 +22,8 @@ const SetupSection = (props, context) => {
     <div className={style.wrapper}>
       <div className={style.title}>{title}</div>
       <div className={style.settings}>
-        <div className={style.label}>{translate('Show')}</div>
+      <InputRange {...disp} />
+        <div className={style.label}>{translate('Show')}</div>        
         <InputSwitch {...display} />
         <ArrowDownIcon
           color={colorUp}
@@ -46,6 +49,7 @@ SetupSection.propTypes = {
   title: PropTypes.string.isRequired,
   onUp: PropTypes.func,
   onDown: PropTypes.func,
-  display: PropTypes.shape(InputSwitch.propTypes)
+  display: PropTypes.shape(InputSwitch.propTypes),
+  disp: PropTypes.shape(InputRange.propTypes)
 };
 export default SetupSection;
