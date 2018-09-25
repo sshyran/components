@@ -29,6 +29,7 @@ import AtomRadioGroup from './../src/atom/radio-group';
 import AtomRange from './../src/atom/range';
 import AtomResourceMiniature from './../src/atom/resource-miniature';
 import AtomSelect from './../src/atom/select';
+import AtomSideNotification from './../src/atom/side-notification';
 import AtomSlide from './../src/atom/slide';
 import AtomSocialLink from './../src/atom/social-link';
 import AtomSpinner from './../src/atom/spinner';
@@ -38,6 +39,7 @@ import AtomTitle from './../src/atom/title';
 import AtomVideoUpload from './../src/atom/video-upload';
 import HocAnimation from './../src/hoc/animation';
 import HocAnimationScheduler from './../src/hoc/animation-scheduler';
+import HocLateralTransition from './../src/hoc/lateral-transition';
 import HocSwapper from './../src/hoc/swapper';
 import HocTransition from './../src/hoc/transition';
 import MoleculeAnswer from './../src/molecule/answer';
@@ -265,6 +267,7 @@ import AtomSelectFixtureSort from '../src/atom/select/test/fixtures/sort';
 import AtomSelectFixtureTemplate from '../src/atom/select/test/fixtures/template';
 import AtomSelectFixtureThematiquesLong from '../src/atom/select/test/fixtures/thematiques-long';
 import AtomSelectFixtureThematiques from '../src/atom/select/test/fixtures/thematiques';
+import AtomSideNotificationFixtureDefault from '../src/atom/side-notification/test/fixtures/default';
 import AtomSlideFixtureDefault from '../src/atom/slide/test/fixtures/default';
 import AtomSlideFixtureLeft from '../src/atom/slide/test/fixtures/left';
 import AtomSlideFixtureLight from '../src/atom/slide/test/fixtures/light';
@@ -286,6 +289,7 @@ import HocAnimationFixtureStart from '../src/hoc/animation/test/fixtures/start';
 import HocAnimationFixtureStop from '../src/hoc/animation/test/fixtures/stop';
 import HocAnimationSchedulerFixtureParallel from '../src/hoc/animation-scheduler/test/fixtures/parallel';
 import HocAnimationSchedulerFixtureSeries from '../src/hoc/animation-scheduler/test/fixtures/series';
+import HocLateralTransitionFixtureDefault from '../src/hoc/lateral-transition/test/fixtures/default';
 import HocSwapperFixtureDefault from '../src/hoc/swapper/test/fixtures/default';
 import HocTransitionFixtureFlipSquare from '../src/hoc/transition/test/fixtures/flip-square';
 import MoleculeAnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
@@ -739,6 +743,7 @@ export const components = {
     AtomRange,
     AtomResourceMiniature,
     AtomSelect,
+    AtomSideNotification,
     AtomSlide,
     AtomSocialLink,
     AtomSpinner,
@@ -750,6 +755,7 @@ export const components = {
   Hoc: {
     HocAnimation,
     HocAnimationScheduler,
+    HocLateralTransition,
     HocSwapper,
     HocTransition
   },
@@ -1072,6 +1078,9 @@ export const fixtures = {
       ThematiquesLong: AtomSelectFixtureThematiquesLong,
       Thematiques: AtomSelectFixtureThematiques
     },
+    AtomSideNotification: {
+      Default: AtomSideNotificationFixtureDefault
+    },
     AtomSlide: {
       Default: AtomSlideFixtureDefault,
       Left: AtomSlideFixtureLeft,
@@ -1112,6 +1121,9 @@ export const fixtures = {
     HocAnimationScheduler: {
       Parallel: HocAnimationSchedulerFixtureParallel,
       Series: HocAnimationSchedulerFixtureSeries
+    },
+    HocLateralTransition: {
+      Default: HocLateralTransitionFixtureDefault
     },
     HocSwapper: {
       Default: HocSwapperFixtureDefault

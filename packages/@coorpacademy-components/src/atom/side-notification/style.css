@@ -1,0 +1,46 @@
+.container {
+  font-family: "Open sans", serif;
+  position: relative;
+
+  justify-content: space-around;
+
+  display: flex;
+  cursor: pointer;
+  color: gray;
+
+  max-width: 250px;
+  padding: 12px;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.closeCross {
+  position: absolute;
+  top: 0;
+  right: 9px;
+}
+
+.content img {
+  min-width: 65px;
+}
+
+.content h5 {
+  line-height: 0px;
+  font-size: 0.8rem;
+}
+
+.content p {
+  font-size: 0.7em;
+  line-height: 0;
+}
+
+.content p a {
+  text-decoration: none;
+  color: gray;
+}
+
+.content p a:hover {
+  text-decoration: underline;
+  font-weight: 600;
+  color: gray;
+}
