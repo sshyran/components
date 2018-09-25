@@ -16,7 +16,7 @@ const SideNotificationComponent = (
       <img src={imageUrl} alt="block-image" />
       <span
         onClick={e => {
-          e.preventDefault();
+          e.stopPropagation();
           onClose();
         }}
         className={closeCross}
