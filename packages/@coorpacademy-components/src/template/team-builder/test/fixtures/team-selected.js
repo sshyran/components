@@ -7,7 +7,6 @@ export default {
       name: 'Team 1',
       number: 0,
       members: [
-        {name: 'Joe eoj', initial: 'JE', isMe: false},
         {name: 'Abott ttoba', initial: 'AT', isMe: true},
         {name: 'John nhoj', initial: 'JN', isMe: false},
         {name: 'Paul luap', initial: 'PL', isMe: false},
@@ -33,8 +32,8 @@ export default {
         members: [
           {name: 'Katrine enirtak', initial: 'KE', isMe: false},
           {name: 'Doug guod', initial: 'DG', isMe: false},
-          {name: 'Paul plop', initial: 'PP', isMe: false},
-          {name: 'Jack joe', initial: 'JJ', isMe: false}
+          {name: 'Paul luap', initial: 'PL', isMe: false},
+          {name: 'Jack kcaj', initial: 'JK', isMe: false}
         ]
       },
       {
