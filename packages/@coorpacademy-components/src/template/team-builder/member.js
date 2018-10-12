@@ -5,7 +5,6 @@ import colors from '../app-racing/game/common-fixtures/colors';
 
 const Member = props => {
   const {name, isMe, initial, number} = props;
-  console.log('number', number);
 
   return (
     <div className={style.member}>

@@ -6,17 +6,19 @@ export default {
     myTeam: {
       name: 'Team 1',
       number: 0,
+      numberSlotTaken: '2',
       members: [
         {name: 'Abott ttoba', initial: 'AT', isMe: true},
         {name: 'John nhoj', initial: 'JN', isMe: false},
-        {name: 'Paul luap', initial: 'PL', isMe: false},
-        {name: 'Jack kcaj', initial: 'JK', isMe: false}
+        {},
+        {}
       ]
     },
     teams: [
       {
         name: 'Team 1',
         number: 0,
+        numberSlotTaken: '4',
         isMyTeam: true,
         members: [
           {name: 'Abott ttoba', initial: 'AT', isMe: false},
@@ -28,6 +30,7 @@ export default {
       {
         name: 'Team 2',
         number: 1,
+        numberSlotTaken: '4',
         isMyTeam: false,
         members: [
           {name: 'Katrine enirtak', initial: 'KE', isMe: false},
@@ -39,15 +42,19 @@ export default {
       {
         name: 'Team 3',
         isMyTeam: false,
+        numberSlotTaken: '2',
         number: 2,
         members: [
           {name: 'Eric cire', initial: 'EC', isMe: false},
-          {name: 'Mark kram', initial: 'MK', isMe: false}
+          {name: 'Mark kram', initial: 'MK', isMe: false},
+          {},
+          {}
         ]
       },
       {
         name: 'Team 4',
         isMyTeam: false,
+        numberSlotTaken: '2',
         number: 3,
         members: [
           {name: 'Sarah haras', initial: 'SH', isMe: false},
