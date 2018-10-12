@@ -21,7 +21,11 @@ const Team = (props, context) => {
       <div className={style.members}>
         {map(member => {
           if (isEmpty(member)) return null;
+<<<<<<< d09599dd9a63193062fd18469a857ec04ede2372
           return <Member key={member.name} {...member} color={colors[number]} />;
+=======
+          return <Member key={member.name} number={number} {...member} />;
+>>>>>>>  add  avatar Initial + color to the selected-team
         }, members)}
       </div>
     </div>
