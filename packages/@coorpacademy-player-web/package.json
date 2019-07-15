@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/player-web",
-  "version": "3.1.23",
+  "version": "3.1.24-alpha.3+649208de8",
   "description": "CoorpAcademy web slide-player",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -36,7 +36,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
     "@babel/polyfill": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
-    "@coorpacademy/css-modules-require-hook": "^2.0.1",
+    "@coorpacademy/css-modules-require-hook": "2.0.1",
     "ava": "^1.4.1",
     "babel-plugin-istanbul": "^4.1.4",
     "browser-env": "^3.2.5",
@@ -49,7 +49,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
-    "@coorpacademy/components": "9.1.19",
+    "@coorpacademy/components": "9.1.20-alpha.3+649208de8",
     "@coorpacademy/player-services": "5.0.9",
     "@coorpacademy/player-store": "4.0.6",
     "@coorpacademy/progression-engine": "11.0.2",
@@ -81,5 +81,6 @@
         ]
       }
     }
-  }
+  },
+  "gitHead": "649208de85da4ade1f21af24d94a877c2b7acc95"
 }
