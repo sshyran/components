@@ -59,7 +59,7 @@ export const createGoForwardNavigate = createNavigate(ACTIONS_HISTORY.GO_FORWARD
 
 export const INITAL_STATE = {};
 
-export const historyReducer = (state = INITAL_STATE, {type, payload}) => {
+export const historyReducer = (state = INITAL_STATE, {type, payload} = {}) => {
   if (type === LOCATION) return payload;
   return state;
 };
