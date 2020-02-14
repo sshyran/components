@@ -1,0 +1,7 @@
+@value colors: "../../variables/colors.css";
+@value medium from colors;
+.parent {
+    background-color: medium;
+    height: 100%;
+}
+

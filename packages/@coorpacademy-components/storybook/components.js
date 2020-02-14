@@ -43,6 +43,9 @@ import HocSwapper from './../src/hoc/swapper';
 import HocTransition from './../src/hoc/transition';
 import MoleculeAnswer from './../src/molecule/answer';
 import MoleculeBattleRequest from './../src/molecule/battle-request';
+import MoleculeBoxLeft from './../src/molecule/boxLeft';
+import MoleculeBoxMiddle from './../src/molecule/boxMiddle';
+import MoleculeBoxRight from './../src/molecule/boxRight';
 import MoleculeBrandCard from './../src/molecule/brand-card';
 import MoleculeBrandCardCreate from './../src/molecule/brand-card-create';
 import MoleculeBrandCreateForm from './../src/molecule/brand-create-form';
@@ -118,6 +121,7 @@ import OrganismBrandTable from './../src/organism/brand-table';
 import OrganismBrandUpload from './../src/organism/brand-upload';
 import OrganismCardsGrid from './../src/organism/cards-grid';
 import OrganismCart from './../src/organism/cart';
+import OrganismCartQuestion from './../src/organism/cart-question';
 import OrganismDiscussion from './../src/organism/discussion';
 import OrganismGetTheApp from './../src/organism/get-the-app';
 import OrganismGridList from './../src/organism/grid-list';
@@ -308,6 +312,9 @@ import MoleculeAnswerFixtureQcm from '../src/molecule/answer/test/fixtures/qcm';
 import MoleculeAnswerFixtureRange from '../src/molecule/answer/test/fixtures/range';
 import MoleculeAnswerFixtureTemplate from '../src/molecule/answer/test/fixtures/template';
 import MoleculeBattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
+import MoleculeBoxLeftFixtureBoxLeft from '../src/molecule/boxLeft/test/fixtures/box-left';
+import MoleculeBoxMiddleFixtureBoxMiddle from '../src/molecule/boxMiddle/test/fixtures/box-middle';
+import MoleculeBoxRightFixtureFixtureRight from '../src/molecule/boxRight/test/fixtures/fixture-right';
 import MoleculeBrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
 import MoleculeBrandCardFixtureWithDescription from '../src/molecule/brand-card/test/fixtures/with-description';
 import MoleculeBrandCardCreateFixtureDefault from '../src/molecule/brand-card-create/test/fixtures/default';
@@ -564,6 +571,7 @@ import OrganismCardsGridFixtureEmpty from '../src/organism/cards-grid/test/fixtu
 import OrganismCardsGridFixtureLoading from '../src/organism/cards-grid/test/fixtures/loading';
 import OrganismCardsGridFixtureMany from '../src/organism/cards-grid/test/fixtures/many';
 import OrganismCartFixtureDefault from '../src/organism/cart/test/fixtures/default';
+import OrganismCartQuestionFixtureDefault from '../src/organism/cart-question/test/fixtures/default';
 import OrganismDiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
 import OrganismDiscussionFixtureLoadingMore from '../src/organism/discussion/test/fixtures/loading-more';
 import OrganismDiscussionFixtureModeration from '../src/organism/discussion/test/fixtures/moderation';
@@ -809,6 +817,9 @@ export const components = {
   Molecule: {
     MoleculeAnswer,
     MoleculeBattleRequest,
+    MoleculeBoxLeft,
+    MoleculeBoxMiddle,
+    MoleculeBoxRight,
     MoleculeBrandCard,
     MoleculeBrandCardCreate,
     MoleculeBrandCreateForm,
@@ -894,6 +905,7 @@ export const components = {
     OrganismBrandUpload,
     OrganismCardsGrid,
     OrganismCart,
+    OrganismCartQuestion,
     OrganismDiscussion,
     OrganismGetTheApp,
     OrganismGridList,
@@ -1194,6 +1206,15 @@ export const fixtures = {
     },
     MoleculeBattleRequest: {
       Default: MoleculeBattleRequestFixtureDefault
+    },
+    MoleculeBoxLeft: {
+      BoxLeft: MoleculeBoxLeftFixtureBoxLeft
+    },
+    MoleculeBoxMiddle: {
+      BoxMiddle: MoleculeBoxMiddleFixtureBoxMiddle
+    },
+    MoleculeBoxRight: {
+      FixtureRight: MoleculeBoxRightFixtureFixtureRight
     },
     MoleculeBrandCard: {
       Default: MoleculeBrandCardFixtureDefault,
@@ -1610,6 +1631,9 @@ export const fixtures = {
     },
     OrganismCart: {
       Default: OrganismCartFixtureDefault
+    },
+    OrganismCartQuestion: {
+      Default: OrganismCartQuestionFixtureDefault
     },
     OrganismDiscussion: {
       Default: OrganismDiscussionFixtureDefault,
