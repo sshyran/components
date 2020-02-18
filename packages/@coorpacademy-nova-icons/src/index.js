@@ -75,6 +75,7 @@ import _NovaSolidAudioAudioControlPlay from './components/nova-solid/audio/audio
 import _NovaSolidBookmarksTagsBookmark3 from './components/nova-solid/bookmarks-tags/bookmark-3';
 import _NovaSolidBookmarksTagsBookmark5 from './components/nova-solid/bookmarks-tags/bookmark-5';
 import _NovaSolidContentContentBook1 from './components/nova-solid/content/content-book-1';
+import _NovaSolidContentEditionBin from './components/nova-solid/content-edition/bin';
 import _NovaSolidContentEditionPencil1 from './components/nova-solid/content-edition/pencil-1';
 import _NovaSolidDataTransferDataUpload1 from './components/nova-solid/data-transfer/data-upload-1';
 import _NovaSolidDesignActionsRedo from './components/nova-solid/design-actions/redo';
@@ -175,6 +176,7 @@ export const NovaSolidAudioAudioControlPlay: Icon = _NovaSolidAudioAudioControlP
 export const NovaSolidBookmarksTagsBookmark3: Icon = _NovaSolidBookmarksTagsBookmark3;
 export const NovaSolidBookmarksTagsBookmark5: Icon = _NovaSolidBookmarksTagsBookmark5;
 export const NovaSolidContentContentBook1: Icon = _NovaSolidContentContentBook1;
+export const NovaSolidContentEditionBin: Icon = _NovaSolidContentEditionBin;
 export const NovaSolidContentEditionPencil1: Icon = _NovaSolidContentEditionPencil1;
 export const NovaSolidDataTransferDataUpload1: Icon = _NovaSolidDataTransferDataUpload1;
 export const NovaSolidDesignActionsRedo: Icon = _NovaSolidDesignActionsRedo;
