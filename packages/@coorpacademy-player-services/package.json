@@ -29,6 +29,9 @@
     "clean": "concurrently \"npm run clean:commonjs\" \"npm run clean:es\"",
     "prepare": "npm run clean && npm run build --production"
   },
+  "engines": {
+    "node": ">=8.3.0"
+  },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-player-services#readme",
   "devDependencies": {
     "@babel/cli": "^7.8.4",
