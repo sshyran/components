@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "target": "ES2019",
+        "module": "commonjs",
+        "strict": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "jsx": "react",
+        "plugins": [
+            {"name": "typescript-plugin-css-modules"}
+        ]
+    }
+}

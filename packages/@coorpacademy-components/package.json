@@ -112,6 +112,8 @@
     "rxjs": "^6.5.5",
     "style-loader": "^1.2.1",
     "stylelint-config-standard": "^20.0.0",
+    "typescript": "^3.8.0",
+    "typescript-plugin-css-modules": "^2.4.0",
     "webpack": "^4.43.0",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0"
