@@ -3,7 +3,7 @@ import test from 'ava';
 import React from 'react';
 import {shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
+import style from '../style.module.css'; // eslint-disable-line css-modules/no-unused-class
 import Tab from '..';
 import defaultFixture from './fixtures/default';
 
