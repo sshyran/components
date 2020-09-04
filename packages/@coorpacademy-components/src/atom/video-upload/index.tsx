@@ -1,7 +1,21 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import DragAndDrop from '../drag-and-drop';
-import style from './style.css';
+import style from './style.module.css';
+
+export type VideoUploadProps = {
+  title: string,
+  description: string,
+  previewLabel: string,
+  uploadLabel: string,
+  previewContent: {
+    type: String,
+    src: string
+  },
+  loading: boolean,
+  modified: boolean,
+  onChange: ((event: React.ChangeEvent<HTMLInputElement>) => void) | undefined,
+  name: string
+}; 
 
 const VideoUpload = ({
   title,
@@ -13,7 +27,7 @@ const VideoUpload = ({
   modified,
   onChange,
   name
-}) => (
+}: VideoUploadProps) => (
   <DragAndDrop
     title={title}
     description={description}
@@ -23,7 +37,7 @@ const VideoUpload = ({
     loading={loading}
     modified={modified}
   >
-    {(onDragStart, onDragStop) => (
+    {(onDragStart: ((event: React.DragEvent<HTMLInputElement>) => void) | undefined, onDragStop: ((event: React.DragEvent<HTMLInputElement>) => void) | undefined) => (
       <input
         type="file"
         name={name}
@@ -38,11 +52,5 @@ const VideoUpload = ({
     )}
   </DragAndDrop>
 );
-
-VideoUpload.propTypes = {
-  ...DragAndDrop.propTypes,
-  name: PropTypes.string,
-  onChange: PropTypes.func
-};
 
 export default VideoUpload;

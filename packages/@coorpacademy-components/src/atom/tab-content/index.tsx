@@ -1,9 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Provider from '../provider';
-import style from './style.css';
+import style from './style.module.css';
 
-const TabContent = props => {
+export type TabContentProps = {
+  tabTitle: string,
+  hideContentBackground: boolean,
+  children: React.ReactNode
+};
+
+const TabContent = (props: TabContentProps) => {
   const {tabTitle, hideContentBackground, children} = props;
 
   const backgroundClassName = hideContentBackground ? style.hiddenBackground : style.greyBackground;
