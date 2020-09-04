@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   NovaCompositionCoorpacademyFacebook as FacebookIcon,
   NovaCompositionCoorpacademyGooglePlus as GooglePlusIcon,
@@ -11,9 +10,10 @@ import {
   NovaCompositionCoorpacademyVimeo as VimeoIcon,
   NovaCompositionCoorpacademyYoutube as YoutubeIcon
 } from '@coorpacademy/nova-icons';
-import style from './style.css';
+import * as style from './style.module.css';
 
-const ICONS = {
+// TODO: refine typing
+const ICONS: { [key: string]: any} = {
   mail: MailIcon,
   'google-plus': GooglePlusIcon,
   facebook: FacebookIcon,
@@ -24,24 +24,30 @@ const ICONS = {
   vimeo: VimeoIcon,
   pinterest: PinterestIcon
 };
-const themeStyle = {
+const themeStyle: {
+  default: typeof style.link,
+  footer: typeof style.linkFooter
+} = {
   default: style.link,
   footer: style.linkFooter
 };
-const SocialLink = props => {
+
+export type SocialLinkProps = {
+  mode: 'default' | 'footer'  | null,
+  type: string,
+  link: string
+};
+
+const SocialLink = (props: SocialLinkProps) => {
   const {type, link, mode = 'default'} = props;
   const IconType = ICONS[type];
   return (
-    <a href={link} className={themeStyle[mode]} target="_blank" rel="noopener noreferrer">
+    <a href={link} className={themeStyle[mode!]} target="_blank" rel="noopener noreferrer">
       <IconType className={style.icon} />
     </a>
   );
 };
 
-SocialLink.propTypes = {
-  mode: PropTypes.string,
-  type: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired
-};
+
 
 export default SocialLink;

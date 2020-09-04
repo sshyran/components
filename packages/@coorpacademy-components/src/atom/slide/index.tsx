@@ -1,9 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Cta from '../cta';
-import style from './style.css';
+import style from './style.module.css';
 
-const Slide = props => {
+export type SlideProps = {
+  cover: string | null,
+  title: string | null,
+  subtitle: string | null,
+  light: boolean,
+  cta: PropTypes.shape(Cta.propTypes),
+  alignment: PropTypes.oneOf(['center', 'left', 'right'])
+};
+
+
+const Slide = (props: SlideProps) => {
   const {cover, title, subtitle, cta, light, alignment = 'center'} = props;
 
   const imgCover = cover;
@@ -34,13 +44,6 @@ const Slide = props => {
   );
 };
 
-Slide.propTypes = {
-  cover: PropTypes.string,
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  light: PropTypes.bool,
-  cta: PropTypes.shape(Cta.propTypes),
-  alignment: PropTypes.oneOf(['center', 'left', 'right'])
-};
+
 
 export default Slide;
