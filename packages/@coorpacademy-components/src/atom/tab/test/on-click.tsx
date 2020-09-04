@@ -12,7 +12,7 @@ configure({adapter: new Adapter()});
 
 test('should call onClick with the targetContent value', t => {
   t.plan(1);
-  const onClick = value => {
+  const onClick = (value: any) => {
     t.is(value, 'foobar');
   };
   const wrapper = shallow(
