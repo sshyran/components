@@ -20,15 +20,17 @@
     "default-param-last": "warn",
     "flowtype/define-flow-type": "error",
     "flowtype-errors/enforce-min-coverage": ["error", 70],
-    "no-shadow": [
-      "error",
-      { "builtinGlobals": true, "allow": ["T", "location", "find", "name"]}
-    ],
+    "no-shadow": ["error", {"allow": ["location"]}],
     "no-restricted-properties": ["error", {
       "object": "Object",
       "property": "keys",
       "message": "IE doesn't support Object.keys with non-Object value. Use _.keys instead."
-    }]
+    }],
+    "node/file-extension-in-import": ["error", "always", {".js": "never", ".ts": "never", ".json": "never"}],
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+      { "ignores": ["modules"] }
+    ]
   },
   "settings": {
     "flowtype": {

@@ -27,7 +27,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@coorpacademy/eslint-plugin-coorpacademy": "^9.0.1",
+    "@coorpacademy/eslint-plugin-coorpacademy": "^10.0.0",
     "@coorpacademy/update-node": "^3.16.0",
     "codecov": "^3.7.0",
     "eslint": "^7.3.1",
