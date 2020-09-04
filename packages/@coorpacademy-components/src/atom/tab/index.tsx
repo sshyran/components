@@ -1,17 +1,17 @@
-import React, {useMemo} from 'react';
+import React, {useCallback} from 'react';
 import {map} from 'lodash/fp';
 import style from './style.module.css';
 
 export type TabProps = {
-  onClick: (targetContent: string) => any,
+  onClick: (targetContent: string) => void,
   links: Array<{[key: string]: string}>,
   title: string,
   targetContent: string
 }
 
 const Tab = ({onClick, links, title, targetContent}: TabProps) => {
-  const handleTabClick: ((event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void) = 
-  useMemo(() => () => onClick(targetContent), [onClick, targetContent]);
+  const handleTabClick = 
+  useCallback<(event: React.MouseEvent) => void>(() => onClick(targetContent), [onClick, targetContent]);
 
   return (
     <div className={style.tab} onClick={handleTabClick}>
