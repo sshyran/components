@@ -823,9 +823,12 @@ import TemplateCommonSearchPageFixtureNoResultWithRecommendations from '../src/t
 import TemplateCommonSearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
 import TemplateExternalCourseFixtureArticle from '../src/template/external-course/test/fixtures/article';
 import TemplateExternalCourseFixtureDefault from '../src/template/external-course/test/fixtures/default';
+import TemplateExternalCourseFixtureH5P from '../src/template/external-course/test/fixtures/h5p';
 import TemplateExternalCourseFixtureLoading from '../src/template/external-course/test/fixtures/loading';
+import TemplateExternalCourseFixturePodcastNoBackground from '../src/template/external-course/test/fixtures/podcast-no-background';
 import TemplateExternalCourseFixturePodcast from '../src/template/external-course/test/fixtures/podcast';
 import TemplateExternalCourseFixtureVideo from '../src/template/external-course/test/fixtures/video';
+import TemplateExternalCourseFixtureYoutubePodcast from '../src/template/external-course/test/fixtures/youtube-podcast';
 
 export const components = {
   Atom: {
@@ -1816,9 +1819,12 @@ export const fixtures = {
     TemplateExternalCourse: {
       Article: TemplateExternalCourseFixtureArticle,
       Default: TemplateExternalCourseFixtureDefault,
+      H5P: TemplateExternalCourseFixtureH5P,
       Loading: TemplateExternalCourseFixtureLoading,
+      PodcastNoBackground: TemplateExternalCourseFixturePodcastNoBackground,
       Podcast: TemplateExternalCourseFixturePodcast,
-      Video: TemplateExternalCourseFixtureVideo
+      Video: TemplateExternalCourseFixtureVideo,
+      YoutubePodcast: TemplateExternalCourseFixtureYoutubePodcast
     }
   },
   TemplateAppPlayer: {

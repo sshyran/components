@@ -5,6 +5,7 @@ const {props} = Default;
 
 export default {
   props: defaultsDeep(props, {
-    backgroundImageUrl: 'https://static.coorpacademy.com/site/podcast.jpg'
+    url: 'https://www.youtube.com/embed/nLMZd05FQKc',
+    contentType: 'video/mp4'
   })
 };
