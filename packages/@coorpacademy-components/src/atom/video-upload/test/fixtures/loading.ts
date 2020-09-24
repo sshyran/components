@@ -1,6 +1,6 @@
 import WithoutVideo from './without-video';
 
-const {props} = WithoutVideo;
+const {props}  = WithoutVideo;
 
 export default {
   props: {

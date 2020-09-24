@@ -1,21 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {isObject, keys} from 'lodash/fp';
-import cssStyle from './style.css';
+import {keys} from 'lodash/fp';
+import cssStyle from './style.module.css';
 
 const viewStyle = {
   cover: cssStyle.cover,
   contain: cssStyle.contain
+} as const;
+
+type srcObj = { mobile: string; desktop: string };
+
+export type PictureBackgroundProps = {
+  view: keyof typeof viewStyle;
+  src: srcObj | string;
+  style: Record<string, string | number>;
 };
 
-const PictureBackground = props => {
+const PictureBackground = (props: PictureBackgroundProps) => {
   const {src, view, style} = props;
-  const mobile = src.mobile;
-  const desktop = src.desktop;
+  let mobile:string = '', desktop: string = '';
+  const isSrcObject = !(typeof src === 'string');
+  if (isSrcObject) {
+    mobile = (src as srcObj).mobile;
+    desktop = (src as srcObj).desktop;
+  }
+  
   const bgStyle = viewStyle[view];
 
-  const pictureView = isObject(src) ? (
+  const pictureView = isSrcObject ? (
     <div className={cssStyle.deviceView}>
       <div className={cssStyle.mobileContainer}>
         <div

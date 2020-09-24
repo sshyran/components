@@ -12,8 +12,7 @@ import {
 } from '@coorpacademy/nova-icons';
 import * as style from './style.module.css';
 
-// TODO: refine typing
-const ICONS: { [key: string]: any} = {
+const ICONS = {
   mail: MailIcon,
   'google-plus': GooglePlusIcon,
   facebook: FacebookIcon,
@@ -23,26 +22,24 @@ const ICONS: { [key: string]: any} = {
   youtube: YoutubeIcon,
   vimeo: VimeoIcon,
   pinterest: PinterestIcon
-};
-const themeStyle: {
-  default: typeof style.link,
-  footer: typeof style.linkFooter
-} = {
+} as const;
+
+const themeStyle = {
   default: style.link,
   footer: style.linkFooter
-};
+} as const;
 
 export type SocialLinkProps = {
-  mode: 'default' | 'footer'  | null,
-  type: string,
+  mode?: 'default' | 'footer',
+  type: keyof typeof ICONS,
   link: string
 };
 
-const SocialLink = (props: SocialLinkProps) => {
+const SocialLink: (props: SocialLinkProps) => JSX.Element = (props) => {
   const {type, link, mode = 'default'} = props;
   const IconType = ICONS[type];
   return (
-    <a href={link} className={themeStyle[mode!]} target="_blank" rel="noopener noreferrer">
+    <a href={link} className={themeStyle[mode]} target="_blank" rel="noopener noreferrer">
       <IconType className={style.icon} />
     </a>
   );

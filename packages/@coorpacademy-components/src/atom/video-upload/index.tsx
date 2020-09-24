@@ -3,18 +3,18 @@ import DragAndDrop from '../drag-and-drop';
 import style from './style.module.css';
 
 export type VideoUploadProps = {
-  title: string,
-  description: string,
-  previewLabel: string,
-  uploadLabel: string,
-  previewContent: {
+  title?: string;
+  description?: string;
+  previewLabel?: string;
+  uploadLabel?: string;
+  previewContent?: {
     type: String,
     src: string
-  },
-  loading: boolean,
-  modified: boolean,
-  onChange: ((event: React.ChangeEvent<HTMLInputElement>) => void) | undefined,
-  name: string
+  };
+  loading?: boolean;
+  modified?: boolean;
+  onChange?: ((event: React.ChangeEvent<HTMLInputElement>) => void);
+  name?: string;
 }; 
 
 const VideoUpload = ({

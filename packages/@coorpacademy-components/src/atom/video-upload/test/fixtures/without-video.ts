@@ -1,8 +1,9 @@
 import {omit} from 'lodash/fp';
 import Desktop from './desktop';
+import { VideoUploadProps } from "../..";
 
-const {props} = Desktop;
+const props: VideoUploadProps = omit('previewContent', Desktop.props);
 
 export default {
-  props: omit('previewContent', props)
+  props: props
 };

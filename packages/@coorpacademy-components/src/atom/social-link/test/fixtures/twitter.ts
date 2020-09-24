@@ -1,6 +1,10 @@
+import { SocialLinkProps } from "../..";
+
+const props: SocialLinkProps = {
+  type: 'twitter',
+  link: 'http://www.twitter.com/'
+};
+
 export default {
-  props: {
-    type: 'twitter',
-    link: 'http://www.twitter.com/'
-  }
+  props
 };

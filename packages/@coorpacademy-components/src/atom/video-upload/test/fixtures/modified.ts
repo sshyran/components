@@ -1,10 +1,11 @@
 import Desktop from './desktop';
+import { VideoUploadProps } from "../..";
 
-const {props} = Desktop;
+const props: VideoUploadProps = {
+  ...Desktop,
+  modified: true
+};
 
 export default {
-  props: {
-    ...props,
-    modified: true
-  }
+  props
 };
