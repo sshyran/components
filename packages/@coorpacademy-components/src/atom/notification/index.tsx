@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {keys} from 'lodash/fp';
-import style from './style.css';
+import style from './style.module.css';
 
 const notificationStyle = {
   warning: style.warning,
@@ -9,7 +7,12 @@ const notificationStyle = {
   success: style.success
 };
 
-const NotificationComponent = props => {
+export type NotificationComponentProps = {
+  type: keyof typeof notificationStyle;
+  message: string
+}
+
+const NotificationComponent = (props: NotificationComponentProps) => {
   const {type, message} = props;
 
   const className = type ? notificationStyle[type] : style.message;
@@ -22,8 +25,4 @@ const NotificationComponent = props => {
   );
 };
 
-NotificationComponent.propTypes = {
-  type: PropTypes.oneOf(keys(notificationStyle)).isRequired,
-  message: PropTypes.string.isRequired
-};
 export default NotificationComponent;

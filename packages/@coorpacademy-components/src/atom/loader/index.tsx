@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import style from './style.css';
+import style from './style.module.css';
 
-const Loader = ({className}) => {
+const Loader = ({className}: {className: string}) => {
   return (
     <div data-name="loader" className={classnames(style.container, className)}>
       <div className={style.dots}>
@@ -14,10 +13,6 @@ const Loader = ({className}) => {
       </div>
     </div>
   );
-};
-
-Loader.propTypes = {
-  className: PropTypes.string
 };
 
 export default Loader;

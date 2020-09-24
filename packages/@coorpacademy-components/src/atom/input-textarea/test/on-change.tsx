@@ -12,7 +12,7 @@ configure({adapter: new Adapter()});
 
 test('should call the onChange function with the value of the target', t => {
   t.plan(1);
-  const onChange = value => {
+  const onChange = (value: string) => {
     t.is(value, 'foo');
   };
   const wrapper = shallow(<InputTextarea {...defaultFixture.props} onChange={onChange} />);

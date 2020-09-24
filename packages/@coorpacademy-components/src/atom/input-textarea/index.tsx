@@ -1,16 +1,31 @@
 import React, {useMemo} from 'react';
-import PropTypes from 'prop-types';
-import {noop, keys} from 'lodash/fp';
+import {noop} from 'lodash/fp';
 import classnames from 'classnames';
 import getClassState from '../../util/get-class-state';
-import style from './style.css';
+import style from './style.module.css';
+
 
 const themeStyle = {
   setup: style.setup,
   cockpit: style.cockpit,
   default: style.default
+} as const;
+
+export type InputTextarea = {
+  placeholder: string;
+  title: string;
+  required?: boolean;
+  name?: string;
+  theme?: keyof typeof themeStyle;
+  disabled?: boolean;
+  value: string;
+  error?: string;
+  onChange?: (...args: any[]) => void;
+  description?: string;
+  modified?: boolean;
 };
-const InputTextarea = props => {
+
+const InputTextarea = (props: InputTextarea) => {
   const {
     title: propsTitle,
     name,
@@ -27,8 +42,8 @@ const InputTextarea = props => {
 
   const title = `${propsTitle}${required ? '* ' : ' '}`;
   const mainClass = themeStyle[theme];
-  const className = getClassState(style.default, style.modified, style.error, modified, error);
-  const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
+  const className = getClassState(style.default, style.modified, style.error, modified, !!error);
+  const handleChange = useMemo(() => (e: any) => onChange(e.target.value), [onChange]);
 
   return (
     <div className={classnames(mainClass, className)}>
@@ -50,17 +65,4 @@ const InputTextarea = props => {
   );
 };
 
-InputTextarea.propTypes = {
-  placeholder: PropTypes.string,
-  title: PropTypes.string,
-  required: PropTypes.bool,
-  name: PropTypes.string,
-  theme: PropTypes.oneOf(keys(themeStyle)),
-  disabled: PropTypes.bool,
-  value: PropTypes.string,
-  error: PropTypes.string,
-  onChange: PropTypes.func,
-  description: PropTypes.string,
-  modified: PropTypes.bool
-};
 export default InputTextarea;
